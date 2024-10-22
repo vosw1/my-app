@@ -1,0 +1,76 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  .login-container h1 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #3ca512;
+  }
+  
+  .form-group {
+    width: 100%; 
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-group input {
+    width: 90%; /* 폭을 100%에서 90%로 조정하여 부모 요소에 여백을 남김 */
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-btn-container {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 2.5rem;
+  }
+  
+  .login-btn-container button {
+    width: 110%; /* 버튼 폭을 90%로 조정 */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d8f0d0;
+  }
+  
+  .login-btn-container button:hover {
+    background-color: #95cf7f;
+    color: white;
+  }
+  
+  .join-btn-container {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .join-btn-container button {
+    width: 110%; /* 버튼 폭을 90%로 조정 */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d8f0d0;
+  }
+  
+  .join-btn-container button:hover {
+    background-color: #95cf7f;
+    color: white;
+  }
