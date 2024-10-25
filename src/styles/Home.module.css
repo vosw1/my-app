@@ -1,21 +1,43 @@
 .body {
     display: flex;
     justify-content: space-between;
+    padding: 30px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+
 }
 
 .body-left,
 .body-center,
 .body-right {
-    width: 30%; /* 각 섹션의 너비를 설정 */
-    padding: 20px;
-    border: 1px solid #ccc; /* 구분을 위한 테두리 */
+    width: 30%;
+    padding: 10px;
+    border: none;
+}
+
+.body-left {
+    border-right: 1px solid #ccc;
+}
+
+.body-right {
+    border-left: 1px solid #ccc;
+}
+
+.body-left li,
+.body-right li {
+    margin-bottom: 10px;
+}
+
+.body-left button,
+.body-right button {
+    margin-left: 10px;
 }
 
 h2 {
-    text-align: center; /* 제목 중앙 정렬 */
+    text-align: center;
 }
 
 .pagination {
     display: flex;
-    justify-content: center; /* 중앙 정렬 */
+    justify-content: center;
 }

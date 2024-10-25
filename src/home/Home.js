@@ -11,7 +11,7 @@ const Home = () => {
     const [currentPageTotal, setCurrentPageTotal] = useState(1); // 전체 투두 페이지 상태
     const [currentPageToday, setCurrentPageToday] = useState(1); // 오늘 투두 페이지 상태
     const [date, setDate] = useState(new Date()); // 선택한 날짜
-    const tasksPerPage = 5; // 한 페이지당 할 일 수
+    const tasksPerPage = 10; // 한 페이지당 할 일 수
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태
     
     // 모달 상태 추가
@@ -23,7 +23,7 @@ const Home = () => {
         {
             name: '리액트 공부하기',
             assignee: '송민경',
-            deadline: '2024-10-12',
+            deadline: '2024-10-27',
             content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
             memo: '블로깅하기',
             isCompleted: false
@@ -31,27 +31,95 @@ const Home = () => {
         {
             name: '리액트 공부하기',
             assignee: '송민경',
-            deadline: '2024-10-15',
+            deadline: '2024-10-28',
             content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
             memo: '블로깅하기',
             isCompleted: false
         },
         {
             name: '리액트 공부하기',
-            assignee: '박선규',
-            deadline: '2024-10-16',
+            assignee: '송민경',
+            deadline: '2024-10-29',
+            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
+            memo: '블로깅 필수!',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-30',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-31',
+            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
+            memo: '블로깅 필수!',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-01',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-02',
+            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
+            memo: '블로깅 필수!',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-03',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-04',
+            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
+            memo: '블로깅 필수!',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-05',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-11-06',
             content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
             memo: '블로깅 필수!',
             isCompleted: false
         }
     ]);
 
-    // 전체 투두 리스트 초기화
+    // 전체 업무 초기화
     useEffect(() => {
         setTotalTodos(tempTodo); 
     }, [tempTodo]);
 
-    // 선택한 날짜에 따른 오늘의 투두 리스트 필터링
+    // 이벤트 날짜 배열 생성
+    const events = totalTodos.map(todo => new Date(todo.deadline));
+
+
+    // 선택한 날짜에 따른 오늘의 업무 필터링
     useEffect(() => {
         const filteredTodayTodos = totalTodos.filter(todo => { 
             const todoDate = new Date(todo.deadline);
@@ -67,7 +135,7 @@ const Home = () => {
         console.log(newDate);
     };
 
-    // 투두 항목 완료/미완료 토글 함수
+    // 업무 항목 완료/미완료 토글 함수
     const toggleCompletion = (index) => {
         const updatedTodos = totalTodos.map((todo, i) => 
             i === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
@@ -75,7 +143,7 @@ const Home = () => {
         setTotalTodos(updatedTodos); 
     };
 
-    // 투두 항목 클릭 시 모달 열기
+    // 업무 항목 클릭 시 모달 열기
     const handleTodoClick = (todo) => {
         setSelectedTodo(todo); 
         setIsModalOpen(true); 
@@ -87,23 +155,25 @@ const Home = () => {
         setSelectedTodo(null); 
     };
 
+    const paginatedTotalTodos = totalTodos.slice((currentPageTotal - 1) * tasksPerPage, currentPageTotal * tasksPerPage);
+    const paginatedTodayTodos = todayTodos.slice((currentPageToday - 1) * tasksPerPage, currentPageToday * tasksPerPage);
+
     return (
         <div className={styles.body}>
             <div className={styles['body-left']}>
-                <h2>전체 투두 리스트</h2>
+                <h2>전체 업무</h2>
                 <ul>
-                    {totalTodos.map((todo, index) => ( 
+                    {paginatedTotalTodos.map((todo, index) => ( // 전체 리스트를 페이지네이션으로 분리된 리스트로 변경
                         <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}> 
+                            <span onClick={() => handleTodoClick(todo)}>
                                 {todo.deadline} {todo.name}
                             </span>
                             <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"} 
+                                {todo.isCompleted ? "달성" : "미달성"}
                             </button>
                         </li>
                     ))}
                 </ul>
-                {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
                     <Paging
                         currentPage={currentPageTotal}
@@ -115,11 +185,15 @@ const Home = () => {
 
             {/* 캘린더 컴포넌트 */}
             <div className={styles['body-center']}>
-                <Calendar selectedDate={selectedDate} onDateChange={handleDateChange} />
+                <Calendar 
+                    selectedDate={selectedDate} 
+                    onDateChange={handleDateChange} 
+                    events={events} // 여기에서 events 전달
+                />
             </div>
 
             <div className={styles['body-right']}>
-                <h2>당일 투두 리스트</h2>
+                <h2>오늘의 업무</h2>
                 <ul>
                     {todayTodos.map((todo, index) => (
                         <li key={index}>

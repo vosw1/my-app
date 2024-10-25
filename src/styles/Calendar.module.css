@@ -1,7 +1,5 @@
 .calendar {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    padding: 0;
 }
 
 .header {
@@ -22,14 +20,24 @@
     cursor: pointer;
 }
 
+.daysOfWeek {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: #3ca512 !important; 
+    padding: 10px 0;
+    color: white; 
+    margin: 20px 0;
+}
 .day:hover {
-    background-color: #f0f0f0;
+    background-color: #3ca512;
+    color: white;
 }
 
 .selected {
     background-color: #95cf7f;
     border-radius: 5px;
-    color: white;
+    color: black;
 }
 
 .emptyDay {
@@ -47,4 +55,14 @@
 .dayOfWeek {
     flex: 1; 
     text-align: center; 
+}
+
+.eventDay {
+    color: #3ca512; 
+    font-weight: bold;
+}
+
+.holiday {
+    color: red;
+    font-weight: bold;
 }
