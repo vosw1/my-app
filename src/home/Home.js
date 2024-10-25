@@ -39,6 +39,38 @@ const Home = () => {
         {
             name: '리액트 공부하기',
             assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
             deadline: '2024-10-29',
             content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
             memo: '블로깅 필수!',
@@ -118,7 +150,6 @@ const Home = () => {
     // 이벤트 날짜 배열 생성
     const events = totalTodos.map(todo => new Date(todo.deadline));
 
-
     // 선택한 날짜에 따른 오늘의 업무 필터링
     useEffect(() => {
         const filteredTodayTodos = totalTodos.filter(todo => { 
@@ -158,12 +189,12 @@ const Home = () => {
     const paginatedTotalTodos = totalTodos.slice((currentPageTotal - 1) * tasksPerPage, currentPageTotal * tasksPerPage);
     const paginatedTodayTodos = todayTodos.slice((currentPageToday - 1) * tasksPerPage, currentPageToday * tasksPerPage);
 
-    return (
+     return (
         <div className={styles.body}>
             <div className={styles['body-left']}>
                 <h2>전체 업무</h2>
-                <ul>
-                    {paginatedTotalTodos.map((todo, index) => ( // 전체 리스트를 페이지네이션으로 분리된 리스트로 변경
+                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
+                    {paginatedTotalTodos.map((todo, index) => (
                         <li key={index}>
                             <span onClick={() => handleTodoClick(todo)}>
                                 {todo.deadline} {todo.name}
@@ -174,10 +205,11 @@ const Home = () => {
                         </li>
                     ))}
                 </ul>
+                {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
                     <Paging
                         currentPage={currentPageTotal}
-                        totalPages={Math.ceil(totalTodos.length / tasksPerPage)}
+                        totalPages={Math.ceil(totalTodos.length / tasksPerPage)} 
                         onPageChange={setCurrentPageTotal}
                     />
                 </div>
@@ -188,23 +220,30 @@ const Home = () => {
                 <Calendar 
                     selectedDate={selectedDate} 
                     onDateChange={handleDateChange} 
-                    events={events} // 여기에서 events 전달
+                    events={events} 
                 />
             </div>
 
+            {/* 오늘 업무 */}
             <div className={styles['body-right']}>
                 <h2>오늘의 업무</h2>
-                <ul>
-                    {todayTodos.map((todo, index) => (
-                        <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}> 
-                                {todo.deadline} {todo.name} 
-                            </span>
-                            <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"} 
-                            </button>
-                        </li>
-                    ))}
+                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
+                    {paginatedTodayTodos.length === 0 ? (
+                        <li>
+                            <h4>오늘의 할 일이 없습니다.</h4>
+                        </li> // 오늘의 업무가 없을 경우 메시지
+                    ) : (
+                        paginatedTodayTodos.map((todo, index) => (
+                            <li key={index}>
+                                <span onClick={() => handleTodoClick(todo)}>
+                                    {todo.deadline} {todo.name}
+                                </span>
+                                <button onClick={() => toggleCompletion(index)}>
+                                    {todo.isCompleted ? "달성" : "미달성"}
+                                </button>
+                            </li>
+                        ))
+                    )}
                 </ul>
                 {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
@@ -215,7 +254,6 @@ const Home = () => {
                     />
                 </div>
             </div>
-
             {/* 모달 컴포넌트 */}
             {isModalOpen && <Modal todo={selectedTodo} onClose={closeModal} />} 
         </div>

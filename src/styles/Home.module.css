@@ -1,31 +1,25 @@
 .body {
     display: flex;
-    justify-content: space-between;
     padding: 30px;
     border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    position: relative;
+    height: 70vh;
+}
 
+.body-center {
+    margin-right: 7%;
 }
 
 .body-left,
 .body-center,
 .body-right {
-    width: 30%;
-    padding: 10px;
-    border: none;
-}
-
-.body-left {
-    border-right: 1px solid #ccc;
-}
-
-.body-right {
-    border-left: 1px solid #ccc;
+    flex: 1;
+    position: relative;
 }
 
 .body-left li,
 .body-right li {
-    margin-bottom: 10px;
+    padding: 10px 0;
 }
 
 .body-left button,
@@ -37,7 +31,11 @@ h2 {
     text-align: center;
 }
 
-.pagination {
+.body-left .Paging,
+.body-right .Paging {
     display: flex;
     justify-content: center;
+    position: absolute; 
+    bottom: 120px; 
+    left: 25%;
 }
