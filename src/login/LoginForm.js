@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import styles from '../styles/LoginForm.module.css';
 
 function LoginForm() { 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Username:', username);
+    console.log('Email:', email);
     console.log('Password:', password);
   };
 
@@ -26,9 +26,9 @@ function LoginForm() {
         <div className={styles['form-group']}>
           <input
             type='text'
-            placeholder='Id를 입력해주세요'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder='이메일을 입력해주세요'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>

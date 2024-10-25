@@ -1,0 +1,41 @@
+.body {
+    display: flex;
+    padding: 30px;
+    border-left: 1px solid #ccc;
+    position: relative;
+    height: 70vh;
+}
+
+.body-center {
+    margin-right: 7%;
+}
+
+.body-left,
+.body-center,
+.body-right {
+    flex: 1;
+    position: relative;
+}
+
+.body-left li,
+.body-right li {
+    padding: 10px 0;
+}
+
+.body-left button,
+.body-right button {
+    margin-left: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.body-left .Paging,
+.body-right .Paging {
+    display: flex;
+    justify-content: center;
+    position: absolute; 
+    bottom: 120px; 
+    left: 25%;
+}
