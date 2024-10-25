@@ -3,8 +3,8 @@
     justify-content: space-between;
     padding: 30px;
     border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-
+    position: relative;
+    height: 70vh;
 }
 
 .body-left,
@@ -12,20 +12,19 @@
 .body-right {
     width: 30%;
     padding: 10px;
-    border: none;
 }
 
-.body-left {
-    border-right: 1px solid #ccc;
-}
-
+.body-left,
 .body-right {
-    border-left: 1px solid #ccc;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%;
 }
 
 .body-left li,
 .body-right li {
-    margin-bottom: 10px;
+    padding: 10px 0;
 }
 
 .body-left button,
@@ -37,7 +36,18 @@ h2 {
     text-align: center;
 }
 
-.pagination {
+.body-left .Paging {
     display: flex;
     justify-content: center;
+    position: absolute; 
+    bottom: 20px; 
+    left: 10%;
+}
+
+.body-right .Paging {
+    display: flex;
+    justify-content: center;
+    position: absolute; 
+    bottom: 20px; 
+    right: 10%; 
 }

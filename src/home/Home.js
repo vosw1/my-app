@@ -162,8 +162,8 @@ const Home = () => {
         <div className={styles.body}>
             <div className={styles['body-left']}>
                 <h2>전체 업무</h2>
-                <ul>
-                    {paginatedTotalTodos.map((todo, index) => ( // 전체 리스트를 페이지네이션으로 분리된 리스트로 변경
+                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
+                    {paginatedTotalTodos.map((todo, index) => (
                         <li key={index}>
                             <span onClick={() => handleTodoClick(todo)}>
                                 {todo.deadline} {todo.name}
@@ -174,27 +174,28 @@ const Home = () => {
                         </li>
                     ))}
                 </ul>
+                {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
                     <Paging
                         currentPage={currentPageTotal}
-                        totalPages={Math.ceil(totalTodos.length / tasksPerPage)}
+                        totalPages={Math.ceil(totalTodos.length / tasksPerPage)} 
                         onPageChange={setCurrentPageTotal}
                     />
                 </div>
             </div>
-
+    
             {/* 캘린더 컴포넌트 */}
             <div className={styles['body-center']}>
                 <Calendar 
                     selectedDate={selectedDate} 
                     onDateChange={handleDateChange} 
-                    events={events} // 여기에서 events 전달
+                    events={events} 
                 />
             </div>
-
+    
             <div className={styles['body-right']}>
                 <h2>오늘의 업무</h2>
-                <ul>
+                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
                     {todayTodos.map((todo, index) => (
                         <li key={index}>
                             <span onClick={() => handleTodoClick(todo)}> 
@@ -215,11 +216,12 @@ const Home = () => {
                     />
                 </div>
             </div>
-
+    
             {/* 모달 컴포넌트 */}
             {isModalOpen && <Modal todo={selectedTodo} onClose={closeModal} />} 
         </div>
     );
+    
 };
 
 export default Home;
