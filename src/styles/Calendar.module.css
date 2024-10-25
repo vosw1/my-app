@@ -39,6 +39,7 @@
     width: 23px;
     height: 23px; 
     border-radius: 50px;
+    margin-left: 8px;
 }
 
 .selected {
@@ -48,6 +49,7 @@
     width: 23px;
     height: 23px; 
     border-radius: 50px;
+    margin-left: 8px;
 }
 
 .emptyDay {
