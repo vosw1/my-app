@@ -189,7 +189,7 @@ const Home = () => {
     const paginatedTotalTodos = totalTodos.slice((currentPageTotal - 1) * tasksPerPage, currentPageTotal * tasksPerPage);
     const paginatedTodayTodos = todayTodos.slice((currentPageToday - 1) * tasksPerPage, currentPageToday * tasksPerPage);
 
-    return (
+     return (
         <div className={styles.body}>
             <div className={styles['body-left']}>
                 <h2>전체 업무</h2>
@@ -228,16 +228,22 @@ const Home = () => {
             <div className={styles['body-right']}>
                 <h2>오늘의 업무</h2>
                 <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
-                    {paginatedTodayTodos.map((todo, index) => (
-                        <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}>
-                                {todo.deadline} {todo.name}
-                            </span>
-                            <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"}
-                            </button>
-                        </li>
-                    ))}
+                    {paginatedTodayTodos.length === 0 ? (
+                        <li>
+                            <h4>오늘의 할 일이 없습니다.</h4>
+                        </li> // 오늘의 업무가 없을 경우 메시지
+                    ) : (
+                        paginatedTodayTodos.map((todo, index) => (
+                            <li key={index}>
+                                <span onClick={() => handleTodoClick(todo)}>
+                                    {todo.deadline} {todo.name}
+                                </span>
+                                <button onClick={() => toggleCompletion(index)}>
+                                    {todo.isCompleted ? "달성" : "미달성"}
+                                </button>
+                            </li>
+                        ))
+                    )}
                 </ul>
                 {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
@@ -252,7 +258,6 @@ const Home = () => {
             {isModalOpen && <Modal todo={selectedTodo} onClose={closeModal} />} 
         </div>
     );
-    
 };
 
 export default Home;
