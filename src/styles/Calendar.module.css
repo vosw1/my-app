@@ -2,22 +2,26 @@
     padding: 0;
 }
 
-.header {
+.calendar .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
+    font-size: x-large;
 }
 
 .daysContainer {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    margin: 10px;
 }
 
 .day {
     text-align: center;
     padding: 10px;
     cursor: pointer;
+    margin: 10px 0;
 }
 
 .daysOfWeek {
@@ -27,17 +31,23 @@
     background-color: #3ca512 !important; 
     padding: 10px 0;
     color: white; 
-    margin: 20px 0;
 }
 .day:hover {
     background-color: #3ca512;
     color: white;
+    font-weight: bold;
+    width: 23px;
+    height: 23px; 
+    border-radius: 50px;
 }
 
 .selected {
     background-color: #95cf7f;
-    border-radius: 5px;
-    color: black;
+    color: white;
+    font-weight: bold;
+    width: 23px;
+    height: 23px; 
+    border-radius: 50px;
 }
 
 .emptyDay {
@@ -49,7 +59,12 @@
     justify-content: space-between;
     font-weight: bold;
     background-color: #f0f0f0; 
-    padding: 10px 0;
+}
+
+.calendar .body {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: large;
 }
 
 .dayOfWeek {
