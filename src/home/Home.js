@@ -39,6 +39,38 @@ const Home = () => {
         {
             name: '리액트 공부하기',
             assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
+            deadline: '2024-10-28',
+            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
+            memo: '블로깅하기',
+            isCompleted: false
+        },
+        {
+            name: '리액트 공부하기',
+            assignee: '송민경',
             deadline: '2024-10-29',
             content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
             memo: '블로깅 필수!',
@@ -118,7 +150,6 @@ const Home = () => {
     // 이벤트 날짜 배열 생성
     const events = totalTodos.map(todo => new Date(todo.deadline));
 
-
     // 선택한 날짜에 따른 오늘의 업무 필터링
     useEffect(() => {
         const filteredTodayTodos = totalTodos.filter(todo => { 
@@ -183,7 +214,7 @@ const Home = () => {
                     />
                 </div>
             </div>
-    
+
             {/* 캘린더 컴포넌트 */}
             <div className={styles['body-center']}>
                 <Calendar 
@@ -192,17 +223,18 @@ const Home = () => {
                     events={events} 
                 />
             </div>
-    
+
+            {/* 오늘 업무 */}
             <div className={styles['body-right']}>
                 <h2>오늘의 업무</h2>
                 <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
-                    {todayTodos.map((todo, index) => (
+                    {paginatedTodayTodos.map((todo, index) => (
                         <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}> 
-                                {todo.deadline} {todo.name} 
+                            <span onClick={() => handleTodoClick(todo)}>
+                                {todo.deadline} {todo.name}
                             </span>
                             <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"} 
+                                {todo.isCompleted ? "달성" : "미달성"}
                             </button>
                         </li>
                     ))}
@@ -216,7 +248,6 @@ const Home = () => {
                     />
                 </div>
             </div>
-    
             {/* 모달 컴포넌트 */}
             {isModalOpen && <Modal todo={selectedTodo} onClose={closeModal} />} 
         </div>
