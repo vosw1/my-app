@@ -7,7 +7,7 @@
 }
 
 .body-center {
- margin-right: 7%;
+    margin-right: 7%;
 }
 
 .body-left,
@@ -37,9 +37,5 @@ h2 {
     justify-content: center;
     position: absolute; 
     bottom: 120px; 
-}
-
-.body-left .Paging,
-.body-right .Paging {
     left: 25%;
 }
