@@ -1,0 +1,43 @@
+.body {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+
+}
+
+.body-left,
+.body-center,
+.body-right {
+    width: 30%;
+    padding: 10px;
+    border: none;
+}
+
+.body-left {
+    border-right: 1px solid #ccc;
+}
+
+.body-right {
+    border-left: 1px solid #ccc;
+}
+
+.body-left li,
+.body-right li {
+    margin-bottom: 10px;
+}
+
+.body-left button,
+.body-right button {
+    margin-left: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
