@@ -1,25 +1,20 @@
 .body {
     display: flex;
-    justify-content: space-between;
     padding: 30px;
     border-left: 1px solid #ccc;
     position: relative;
     height: 70vh;
 }
 
-.body-left,
-.body-center,
-.body-right {
-    width: 30%;
-    padding: 10px;
+.body-center {
+ margin-right: 7%;
 }
 
 .body-left,
+.body-center,
 .body-right {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    height: 100%;
+    flex: 1;
+    position: relative;
 }
 
 .body-left li,
@@ -36,18 +31,15 @@ h2 {
     text-align: center;
 }
 
-.body-left .Paging {
-    display: flex;
-    justify-content: center;
-    position: absolute; 
-    bottom: 20px; 
-    left: 10%;
-}
-
+.body-left .Paging,
 .body-right .Paging {
     display: flex;
     justify-content: center;
     position: absolute; 
-    bottom: 20px; 
-    right: 13%; 
+    bottom: 120px; 
+}
+
+.body-left .Paging,
+.body-right .Paging {
+    left: 25%;
 }
