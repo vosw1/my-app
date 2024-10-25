@@ -44,16 +44,16 @@ function LoginForm() {
         <div className={styles['login-btn-container']}>
           <button className='login-btn' type='submit'>Login</button>
           <button className='kakao-login-btn' type='button' onClick={handleKakaoLogin}>
-            <img
-              src={require('../resources/img/kakao_login_btn.png')}
-              alt="Kakao Login"
-            />
+          <img 
+            src={require('../resources/img/kakao_login_btn.png')} 
+            alt="Kakao Login" 
+            style={{ width: '120%', height: 'auto', objectFit: 'contain' }} />
           </button>
           <button className='naver-login-btn' type='button' onClick={handleNaverLogin}>
-            <img
-              src={require('../resources/img/naver_login_btn.png')}
+            <img 
+              src={require('../resources/img/naver_login_btn.png')} 
               alt="Naver Login"
-            />
+              style={{ width: '120%', height: 'auto', objectFit: 'contain' }} />
           </button>
           <button className='join-btn' type='button'>Join</button>
         </div>
