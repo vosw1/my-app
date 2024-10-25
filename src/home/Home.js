@@ -11,7 +11,7 @@ const Home = () => {
     const [currentPageTotal, setCurrentPageTotal] = useState(1); // 전체 투두 페이지 상태
     const [currentPageToday, setCurrentPageToday] = useState(1); // 오늘 투두 페이지 상태
     const [date, setDate] = useState(new Date()); // 선택한 날짜
-    const tasksPerPage = 10; // 한 페이지당 할 일 수
+    const tasksPerPage = 9; // 한 페이지당 할 일 수
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태
     
     // 모달 상태 추가
