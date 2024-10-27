@@ -3,6 +3,7 @@ import Calendar from '../components/Calendar';
 import Modal from '../components/Modal';
 import Paging from '../components/Paging';
 import styles from '../styles/Home.module.css'; 
+import TodoList from '../components/ToDoList';
 
 const Home = () => {
     // 상태 변수 정의
@@ -192,19 +193,12 @@ const Home = () => {
      return (
         <div className={styles.body}>
             <div className={styles['body-left']}>
-                <h2>전체 업무</h2>
-                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
-                    {paginatedTotalTodos.map((todo, index) => (
-                        <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}>
-                                {todo.deadline} {todo.name}
-                            </span>
-                            <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+            <h2>전체 업무</h2>
+                <TodoList 
+                    todos={paginatedTotalTodos} 
+                    onTodoClick={handleTodoClick} 
+                    toggleCompletion={toggleCompletion} 
+                />
                 {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
                     <Paging
