@@ -3,6 +3,7 @@ import Calendar from '../components/Calendar';
 import Modal from '../components/Modal';
 import Paging from '../components/Paging';
 import styles from '../styles/Home.module.css'; 
+import TodoList from '../components/ToDoList';
 
 const Home = () => {
     // 상태 변수 정의
@@ -99,46 +100,6 @@ const Home = () => {
             content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
             memo: '블로깅하기',
             isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-02',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-03',
-            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
-            memo: '블로깅하기',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-04',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-05',
-            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
-            memo: '블로깅하기',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-06',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
-            isCompleted: false
         }
     ]);
 
@@ -192,19 +153,12 @@ const Home = () => {
      return (
         <div className={styles.body}>
             <div className={styles['body-left']}>
-                <h2>전체 업무</h2>
-                <ul style={{ flex: 1, overflowY: 'auto' }}> {/* overflow 설정 */}
-                    {paginatedTotalTodos.map((todo, index) => (
-                        <li key={index}>
-                            <span onClick={() => handleTodoClick(todo)}>
-                                {todo.deadline} {todo.name}
-                            </span>
-                            <button onClick={() => toggleCompletion(index)}>
-                                {todo.isCompleted ? "달성" : "미달성"}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+            <h2>전체 업무</h2>
+                <TodoList 
+                    todos={paginatedTotalTodos} 
+                    onTodoClick={handleTodoClick} 
+                    toggleCompletion={toggleCompletion} 
+                />
                 {/* 페이지네이션 컴포넌트 */}
                 <div className={styles.Paging}>
                     <Paging
