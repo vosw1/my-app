@@ -1,0 +1,12 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #5a5656; /* 원하는 배경색으로 변경 가능 */
+    text-align: center;
+  }
+
+.footer p {
+    color: white;
+}
