@@ -10,9 +10,8 @@
     
 }
 
-.header-left, 
-.progress-wrapper, 
-.header-right {
+.header-left, .progress-wrapper, .header-right {
+
     flex: 1;
     padding: 10px;
     height: 150px; 

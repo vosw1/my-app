@@ -12,7 +12,7 @@ const Home = () => {
     const [currentPageTotal, setCurrentPageTotal] = useState(1); // 전체 투두 페이지 상태
     const [currentPageToday, setCurrentPageToday] = useState(1); // 오늘 투두 페이지 상태
     const [date, setDate] = useState(new Date()); // 선택한 날짜
-    const tasksPerPage = 10; // 한 페이지당 할 일 수
+    const tasksPerPage = 8; // 한 페이지당 할 일 수
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태
     
     // 모달 상태 추가
@@ -99,46 +99,6 @@ const Home = () => {
             deadline: '2024-11-01',
             content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
             memo: '블로깅하기',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-02',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-03',
-            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
-            memo: '블로깅하기',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-04',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-05',
-            content: '리액트로 간단 웹사이트 만들면서 노션 정리하기',
-            memo: '블로깅하기',
-            isCompleted: false
-        },
-        {
-            name: '리액트 공부하기',
-            assignee: '송민경',
-            deadline: '2024-11-06',
-            content: '리액트 라이브러리와 자바스크립트 공부하고 노션에 정리하기',
-            memo: '블로깅 필수!',
             isCompleted: false
         }
     ]);
