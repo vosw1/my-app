@@ -209,7 +209,12 @@ const Home = () => {
                 </div>
             </div>
             {/* 모달 컴포넌트 */}
-            {isModalOpen && <Modal todo={selectedTodo} onClose={closeModal} />} 
+            {isModalOpen && (
+                 <Modal
+                    todo={selectedTodo} // 선택된 투두 데이터를 전달
+                    onClose={closeModal}
+                 />
+            )}
         </div>
     );
 };
