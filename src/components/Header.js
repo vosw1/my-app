@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Header.module.css';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Header = ({ openModal }) => {
-    const currentDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000); // 1초마다 업데이트
+
+        return () => clearInterval(interval); // 컴포넌트가 언마운트될 때 타이머 정리
+    }, []);
+
+    const currentDate = currentTime.toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
+    // 현재 시간을 받아와서 '오후 9시 30분 54초' 형태로 변환
+    const hours = currentTime.getHours();
+    const minutes = String(currentTime.getMinutes()).padStart(2, '0'); // 두 자리 수로 표시
+    const seconds = String(currentTime.getSeconds()).padStart(2, '0'); // 두 자리 수로 표시
+    const ampm = hours >= 12 ? '오후' : '오전';
+    const formattedHours = hours % 12 || 12; // 12시간 형식으로 변환
+
+    const timeString = `${ampm} ${formattedHours}시 ${minutes}분 ${seconds}초`;
 
     // 데이터 정의 (여기서 직접 관리)
     const totalTasks = { done: 5, undone: 2 }; // 총 업무 개수
@@ -24,7 +46,7 @@ const Header = ({ openModal }) => {
         <header className={styles.header}>
             <div className={styles['header-left']}>
                 <p>{currentDate}</p>
-                <p>{currentTime}</p>
+                <p>{timeString}</p>
                 <p>날씨: 맑음</p>
             </div>
             <div className={styles['header-center']}>
