@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Modal.module.css';
 
-const Modal = ({ onClose }) => {
-  // 항상 호출되도록 상태를 최상위에서 정의
+const Modal = ({ todo, onClose }) => {
   const [taskName, setTaskName] = useState('');
   const [assignee, setAssignee] = useState('');
   const [deadline, setDeadline] = useState('');
   const [memo, setMemo] = useState('');
   const [content, setContent] = useState('');
+
+  useEffect(() => {
+    if (todo) {
+      setTaskName(todo.name);
+      setAssignee(todo.assignee);
+      setDeadline(todo.deadline);
+      setMemo(todo.memo);
+      setContent(todo.content);
+    }
+  }, [todo]);
 
   const handleSave = () => {
     console.log('To-Do Item Saved', { taskName, assignee, deadline, memo, content });
@@ -28,23 +37,23 @@ const Modal = ({ onClose }) => {
         <div className={styles.inputContainer}>
           <div className={styles.inputGroup}>
             <label>업무명</label>
-            <input type="text" name="taskName" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+            <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
           </div>
           <div className={styles.inputGroup}>
             <label>담당자</label>
-            <input type="text" name="assignee" value={assignee} onChange={(e) => setAssignee(e.target.value)} />
+            <input type="text" value={assignee} onChange={(e) => setAssignee(e.target.value)} />
           </div>
           <div className={styles.inputGroup}>
             <label>기한</label>
-            <input type="date" name="deadline" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+            <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
           </div>
           <div className={styles.inputGroup}>
             <label>메모</label>
-            <input type="text" name="memo" value={memo} onChange={(e) => setMemo(e.target.value)} />
+            <input type="text" value={memo} onChange={(e) => setMemo(e.target.value)} />
           </div>
           <div className={styles.inputGroup}>
             <label>내용</label>
-            <textarea name="content" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+            <textarea value={content} onChange={(e) => setContent(e.target.value)}></textarea>
           </div>
         </div>
         <div className={styles.buttonContainer}>
