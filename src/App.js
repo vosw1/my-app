@@ -1,10 +1,11 @@
 import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import React, { useState } from 'react'; // useState 추가
+import React, { useState } from 'react'; 
 import LoginForm from './login/LoginForm';
+import JoinForm from './join/JoinForm';
 import Home from './home/Home';
 import Header from './components/Header';
-import Modal from './components/Modal'; // 모달 컴포넌트 추가
+import Modal from './components/Modal';
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LoginForm />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/joinForm' element={<JoinForm />} />
       </Routes>
       {isModalOpen && <Modal onClose={closeModal} />} {/* 모달 열기 */}
     </>
