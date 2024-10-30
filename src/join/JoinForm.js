@@ -54,15 +54,6 @@ function JoinForm() {
         </div>
         <div className={styles['form-group']}>
           <input
-            type='text'
-            placeholder='닉네임을 입력해주세요'
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles['form-group']}>
-          <input
             type='date'
             placeholder='생년월일을 입력해주세요'
             value={birthdate}

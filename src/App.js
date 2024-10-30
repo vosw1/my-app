@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import React, { useState } from 'react'; 
 import LoginForm from './login/LoginForm';
 import JoinForm from './join/JoinForm';
+import SettingForm from './setting/SettingForm';
 import Home from './home/Home';
 import Header from './components/Header';
 import Modal from './components/Modal';
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<LoginForm />} />
         <Route path='/home' element={<Home />} />
         <Route path='/joinForm' element={<JoinForm />} />
+        <Route path='/settingForm' element={<SettingForm />} />
       </Routes>
       {isModalOpen && <Modal onClose={closeModal} />} {/* 모달 열기 */}
     </>
