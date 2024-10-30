@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #3ca512;
+    margin: 0 10px; 
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.tab {
+    margin: 0 10px; 
+    cursor: pointer;
+    text-decoration: none; 
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; 
+}
+
+.actions button {
+    margin: 0 10px; 
+    border: none;
+    font-weight: bold;
+    font-size: large;
+    padding: 0 10px;
+}
