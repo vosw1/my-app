@@ -1,0 +1,81 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.settings-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #3ca512;
+    text-align: center;
+}
+
+.setting-form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setting-form-group h4{
+    margin: 30px 0;
+}
+
+.setting-form-group input{
+    width: 100%; 
+    max-width: 100%;
+    height: auto; 
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.setting-form-group select {
+    width: 100%; 
+    max-width: 100%;
+    height: auto; 
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.setting-form-group input::placeholder {
+    color: #aaa;
+}
+
+.settings-btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.settings-btn-container button {
+    width: 180px;
+    height: 45px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #d8f0d0;
+    transition: background-color 0.3s ease;
+    margin: 70px auto; 
+}
+
+.settings-btn-container button:hover {
+    background-color: #95cf7f;
+    color: white;
+}
