@@ -31,13 +31,13 @@
     color: black;
 }
 
-form {
+.modalOverlay form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input {
+.handleSubmit input {
     width: 100%; 
     height: 35px; 
     padding: 5px; 
@@ -46,7 +46,7 @@ input {
     margin-bottom: 10px; 
 }
 
-button[type="submit"] {
+.handleSubmit button[type="submit"] {
     width: 60px;
     height: 35px;
     font-size: 1rem;
